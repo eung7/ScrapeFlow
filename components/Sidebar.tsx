@@ -67,7 +67,6 @@ function DesktopSidebar() {
           </Link>
         ))}
       </div>
-      DesktopSidebar
     </div>
   );
 }
