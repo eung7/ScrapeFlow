@@ -3,7 +3,10 @@
 import CustomDialogHeader from "@/components/CustomDialogHeader";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { createWorkflowSchema } from "@/schema/workflows";
+import {
+  createWorkflowSchema,
+  CreateWorkflowSchemaType,
+} from "@/schema/workflows";
 import { BluetoothConnectedIcon, Layers2Icon } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -19,13 +22,19 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useMutation } from "@tanstack/react-query";
+import { createWorkFlow } from "./createWorkFlow";
 
 function CreateWorkflowDialog({ triggerText }: { triggerText?: string }) {
   const [open, setOpen] = useState(false);
 
-  const form = useForm<z.infer<typeof createWorkflowSchema>>({
+  const form = useForm<CreateWorkflowSchemaType>({
     resolver: zodResolver(createWorkflowSchema),
     defaultValues: {},
+  });
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: createWorkFlow,
   });
 
   return (
