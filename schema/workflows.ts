@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const createWorkflowSchema = z.object({
-  name: z.string().min(50),
-  description: z.string().min(80).optional(),
+  name: z.string().max(50),
+  description: z.string().max(100).optional(),
 });
 
 export type CreateWorkflowSchemaType = z.infer<typeof createWorkflowSchema>;

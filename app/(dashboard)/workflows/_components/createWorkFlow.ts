@@ -1,3 +1,5 @@
+"use server";
+
 import prisma from "@/lib/prisma";
 import {
   createWorkflowSchema,
@@ -7,7 +9,7 @@ import { WorkflowStatus } from "@/types/workflow";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-export async function createWorkFlow(form: CreateWorkflowSchemaType) {
+export async function CreateWorkFlow(form: CreateWorkflowSchemaType) {
   const { success, data } = createWorkflowSchema.safeParse(form);
   if (!success) {
     throw new Error("invalid form data");
