@@ -22,8 +22,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useMutation } from "@tanstack/react-query";
-import { CreateWorkFlow } from "./createWorkFlow";
 import { toast } from "sonner";
+import { CreateWorkFlow } from "../../../../actions/workflows/createWorkFlow";
 
 function CreateWorkflowDialog({ triggerText }: { triggerText?: string }) {
   const [open, setOpen] = useState(false);
