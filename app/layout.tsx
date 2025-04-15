@@ -30,8 +30,8 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <AppProvider>{children}</AppProvider>
+          <Toaster richColors />
         </body>
-        <Toaster richColors />
       </html>
     </ClerkProvider>
   );
